@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Platform</title>
+
+
+    <!-- Additional CSS Files -->
+     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/font-awesome.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/abc.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/owl-carousel.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/lightbox.css') }}">
+
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            .DEMFORE
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{{ url_for('index') }}">Home</a></li>
+                            <li class="scroll-to-section"><a href="about.html">About</a></li>
+                            <li class="scroll-to-section"><a href="{{ url_for('platform') }}" class="active">Platform</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">More</a>
+                                <ul>
+                                    <li><a href="#features">Features</a></li>
+                                    <li><a href="">Customers</a></li>
+                                    <li><a href="">FAQ's</a></li>
+                                    <li><a href="">Blog</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li> 
+                            <div class="search-icon">
+                                <a href="#search"><i class="fa fa-search"></i></a>
+                            </div>
+                            <li class="scroll-to-section">
+                                {% if current_user.is_anonymous %}
+                                    <a href="{{ url_for('login') }}">Sign in</a>
+                                {% else %}
+                                    <a href="{{ url_for('logout') }}">Sign out</a>
+                                {% endif %}</li> 
+
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    
+    <!-- ***** Search Area ***** -->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form id="contact" action="#" method="get">
+            <fieldset>
+                <input type="search" name="q" placeholder="SEARCH KEYWORD(s)" aria-label="Search through site content">
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="main-button">Search</button>
+            </fieldset>
+        </form>
+    </div>
+
+   
+
+    <!-- ***** Platform Area Starts ***** -->
+        <form action="{{ url_for('forecast')}}" method="post" placeholder="Enter File" enctype="multipart/form-data">
+        <section class="section" id="platform">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <br><br><br><br>
+                            <h6>Platform</h6>
+                            <h2>You can get your prediction results here!</h2>
+                        </div>
+                       <br><br><br><br>
+                       <a href="{{url_for('static', filename='styles/Demfore_Data2.xlsx') }}" download="Demfore_Data2">
+                        <button type ="button" class="btn"><i class="fa fa-download"></i> Download data template here</button>
+                        </a>
+                        <br><br>
+                            <div class="col-md-12">
+                                <input type="file" id="file" name="file" placeholder="Upload File here" class="main-button-icon" accept=".csv,.xls,.xlsx">
+                                    <i class="fa fa-arrow-up"></i>
+                                
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <br><br>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="">
+                        <br><br>
+                        <h6>Enter the number of days for which the forecast is required:</h6>
+                        <br>
+                        {{ form.days(cols=10, rows=4 )}}
+                       <!--  <input type="number" id="days" name="q" placeholder="&nbsp;&nbsp;&nbsp;eg. 20" aria-label="Search through site content" style="border-radius:15px;"> -->
+                        <br><br><br>
+                        <!-- <input type="submit" class="main-button" value="Submit"> -->
+                        <input type="submit" class="main-button" value="Get Forecast">
+                       
+                    </div>
+                </div>
+            </div>
+    </section>
+ </form>
+    <!-- ***** About Area Ends ***** -->
+ <br><br><br><br> <br><br><br><br> <br><br><br><br><br><br>
+   
+    
+    <!-- ***** Contact Us Area Starts ***** -->
+    <section class="section" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>Contact Us</h6>
+                            <h2>Feel free to keep in touch with us!</h2>
+                        </div>
+                        <ul class="contact-info">
+                            <li><img src="{{url_for('static', filename='styles/images/contact-info-01.png') }}" alt="">1800 1800 1800</li>
+                            <li><img src="{{url_for('static', filename='styles/images/contact-info-02.png') }}" alt="">info@demfore.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="get">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Your Name *" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="phone" type="text" id="phone" placeholder="Your Phone" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="email" type="email" id="email" placeholder="Your Email *" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="subject" type="text" id="subject" placeholder="Subject">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button-icon">Send Message Now <i class="fa fa-arrow-right"></i></button>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Contact Us Area Ends ***** -->
+    
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="left-text-content">
+                        <p>Copyright &copy; 2021 DemFore, Ltd. 
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="right-text-content">
+                            <ul class="social-icons">
+                                <li><p>Follow Us</p></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-dribbble"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+   <!-- jQuery -->
+    <script src="{{url_for('static', filename='styles/js/jquery-2.1.0.min.js') }}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='styles/js/popper.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/bootstrap.min.js') }}"></script>
+
+    <!-- Plugins -->
+    <script src="{{url_for('static', filename='styles/js/owl-carousel.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/scrollreveal.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/waypoints.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/imgfix.min.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/slick.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/lightbox.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/isotope.js') }}"></script> 
+    
+    <!-- Global Init -->
+    <script src="{{url_for('static', filename='styles/js/custom.js') }}"></script>
+
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+    </script>
+
+  </body>
+</html>

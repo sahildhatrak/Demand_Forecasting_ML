@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>DemFore Home</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/font-awesome.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/abc.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/owl-carousel.css') }}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/css/lightbox.css') }}">
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            .DEMFORE
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{{ url_for('index') }}" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="about.html">About</a></li>
+                            <li class="scroll-to-section"><a href="{{ url_for('platform') }}">Platform</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">More</a>
+                                <ul>
+                                    <li><a href="#features">Features</a></li>
+                                    <li><a href="">Customers</a></li>
+                                    <li><a href="">FAQ's</a></li>
+                                    <li><a href="">Blog</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li> 
+                            <div class="search-icon">
+                                <a href="#search"><i class="fa fa-search"></i></a>
+                            </div>
+                            <li class="scroll-to-section">
+                                {% if current_user.is_anonymous %}
+                                    <a href="{{ url_for('login') }}">Sign in</a>
+                                {% else %}
+                                    <a href="{{ url_for('logout') }}">Sign out</a>
+                                {% endif %}</li> 
+
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    
+    <!-- ***** Search Area ***** -->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form id="contact" action="#" method="get">
+            <fieldset>
+                <input type="search" name="q" placeholder="SEARCH KEYWORD(s)" aria-label="Search through site content">
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="main-button">Search</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="{{url_for('static', filename='styles/images/slide-01.jpg') }}" alt="">
+                <div class="text-content">
+                  <h3>Welcome To DemFore</h3>
+                  <h5>Key for Ultimate Savings</h5>
+                  <a href="#" class="main-stroked-button">Learn More</a>
+                  <a href="#" class="main-filled-button">Get It Now</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="{{url_for('static', filename='styles/images/slide-02.jpg') }}" alt="">
+                <div class="text-content">
+                    <h3>Predictice Analytics</h3>
+                  <h5>Accurate Predictions</h5>
+                  <a href="#" class="main-stroked-button">Read More</a>
+                  <a href="#" class="main-filled-button">Get It Now</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="{{url_for('static', filename='styles/images/slide-03.jpg') }}" alt="">
+                <div class="text-content">
+                  <h3>Pragmatic AI</h3>
+                  <h5>Advanced Data Science</h5>
+                  <a href="#" class="main-stroked-button">Learn More</a>
+                  <a href="#" class="main-filled-button">Get It Now</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** About Area Starts ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>About Us</h6>
+                            <h2>Our vision is to perfect retail</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="{{url_for('static', filename='styles/images/service-item-01.png') }}" alt="">
+                                    <h4>Top Notch</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="{{url_for('static', filename='styles/images/service-item-01.png') }}" alt="">
+                                    <h4>Robust</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="{{url_for('static', filename='styles/images/contact-info-03.png') }}" alt="">
+                                    <h4>Reliable</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="{{url_for('static', filename='styles/images/contact-info-03.png') }}" alt="">
+                                    <h4>Up-to-date</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <a href="#" class="main-button-icon">
+                                    Learn More <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="right-text-content">
+                        <p>That vision is built on three pillars: an obsession with customer success, a dedication to technological innovation, and a culture that values retail science and engineering.<br><br>
+                            <b>DemFore</b>’s pragmatic AI and computational power automate demand forecasting with unmatched speed and accuracy. Empower your demand planners to innovate and tackle your biggest challenges head-on with our demand forecasting software.
+                        <br><br>We allow you to turn your data into accurate, automated, actionable business decisions. DemFore starts with your internal retail data and factors in external data from events like holidays or weather forecasts, optimizing your demand forecasts so you can continuously improve your demand planning.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** About Area Ends ***** -->
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="{{url_for('static', filename='styles/images/pa.png') }}" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Predictive analytics</h4>
+                            <p>Generate accurate projections of your future goods flows based on unmatched forecast accuracy. Our system combines forecasts with your planned changes to support your forward-looking analysis and decisions.</p>
+                            <a href="#" class="text-button-icon">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="{{url_for('static', filename='styles/images/powerful.png') }}" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Powerful but flexible forecast views</h4>
+                            <p>DemFore’s computational power applies pragmatic AI to massive data sets, giving you forecast visibility hundreds of days out at any level of granularity, aggregation, or custom grouping.</p>
+                            <a href="#" class="text-button-icon">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="{{url_for('static', filename='styles/images/pragmatic.png') }}" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Pragmatic AI</h4>
+                            <p>We make advanced data science transparent. Make use of the latest machine learning and advanced statistical techniques without requiring an advanced degree to understand or trust the results.</p>
+                            <a href="#" class="text-button-icon">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="{{url_for('static', filename='styles/images/actionable.png') }}" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Actionable analytics</h4>
+                            <p>Use exception management to proactively target potential issues. Users can address automatically flagged items like unusual forecasts or poor product performance directly within RELEX’s demand forecasting software.</p>
+                            <a href="#" class="text-button-icon">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="{{url_for('static', filename='styles/images/demand-forecasting.png') }}" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Integrated supply chain planning</h4>
+                            <p>When you can base distribution center forecasts on store-level demand data, you see the full story of how your planned, push-based stock movements work with your pull-based demand.</p>
+                            <a href="#" class="text-button-icon">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="section-heading">
+                        <h6>Connect with our experts</h6>
+                        <h2>Don’t miss this chance!</h2>
+                    </div>
+                    <div class="subscribe-content">
+                        <p>Connect with our experts at DemFore to get a wide knowlegde of the platform and it's benefits today at absolutely no cost.</p>
+                        <div class="subscribe-form">
+                            <form id="subscribe-now" action="" method="get">
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-12">
+                                      <fieldset>
+                                        <input name="email" type="text" id="email" placeholder="Enter your email..." required="">
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                      <fieldset>
+                                        <button type="submit" id="form-submit" class="main-button">Connect</button>
+                                      </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+    <!-- ***** Projects Area Starts ***** -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="section-heading">
+                    <h6>Our Clients</h6>
+                    <h2>Our Platform Users</h2>
+                </div>
+                <!--<div class="filters">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".des">Web Design</li>
+                        <li data-filter=".dev">Web Development</li>
+                        <li data-filter=".gra">Graphics</li>
+                        <li data-filter=".tsh">Artworks</li>
+                    </ul>
+                </div>-->
+            </div>
+            <div class="col-lg-9">
+                <div class="filters-content">
+                    <div class="row grid">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
+                          <div class="item">
+                            <a href="{{url_for('static', filename='styles/images/c1.jpg') }}" data-lightbox="image-1" data-title="Our Projects"><img src="{{url_for('static', filename='styles/images/c1.jpg') }}" alt=""></a>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                          <div class="item">
+                            <a href="{{url_for('static', filename='styles/images/c2.jpg') }}" data-lightbox="image-1" data-title="Our Projects"><img src="{{url_for('static', filename='styles/images/c2.jpg') }}" alt=""></a>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all gra">
+                          <div class="item">
+                            <a href="{{url_for('static', filename='styles/images/c3.jpg') }}" data-lightbox="image-1" data-title="Our Projects"><img src="{{url_for('static', filename='styles/images/c3.jpg') }}" alt=""></a>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all tsh">
+                          <div class="item">
+                            <a href="{{url_for('static', filename='styles/images/c4.jpg') }}" data-lightbox="image-1" data-title="Our Projects"><img src="{{url_for('static', filename='styles/images/c4.jpg') }}" alt=""></a>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                          <div class="item">
+                            <a href="{{url_for('static', filename='styles/images/c5.jpg') }}" data-lightbox="image-1" data-title="Our Projects"><img src="{{url_for('static', filename='styles/images/c5.jpg') }}" alt=""></a>
+                          </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+      
+    <!-- ***** Projects Area Ends ***** -->
+        
+ -->
+    <!-- ***** Testimonials Starts ***** -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h6></h6>
+                        <h2>TEAM DEMFORE</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter left move 30px over 0.6s after 0.2s">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item author-item">
+                            <div class="member-thumb">
+                                <img src="{{url_for('static', filename='styles/images/sahil.png') }}" alt="">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>.01 Sahil Dhatrak</h4>
+                        </div>
+                        <div class="item author-item">
+                            <div class="member-thumb">
+                                <img src="{{url_for('static', filename='styles/images/panwar.png') }}" alt="">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>.02 Rishabh Panwar</h4>
+                        </div>
+                        <div class="item author-item">
+                            <div class="member-thumb">
+                                <img src="{{url_for('static', filename='styles/images/anshul.png') }}" alt="">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>.03 Anshul Shrote</h4>
+                        </div>
+                        <div class="item author-item">
+                            <div class="member-thumb">
+                                <img src="{{url_for('static', filename='styles/images/vishal.png') }}" alt="">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>.04 Vishal Jain</h4>
+                        </div>
+                        <div class="item author-item">
+                            <div class="member-thumb">
+                                <img src="{{url_for('static', filename='styles/images/naman.png') }}" alt="">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>.05 Naman Jain</h4>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    
+    <!-- ***** Contact Us Area Starts ***** -->
+    <section class="section" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>Contact Us</h6>
+                            <h2>Feel free to keep in touch with us!</h2>
+                        </div>
+                        <ul class="contact-info">
+                            <li><img src="{{url_for('static', filename='styles/images/contact-info-01.png') }}" alt="">1800 1800 1800</li>
+                            <li><img src="{{url_for('static', filename='styles/images/contact-info-02.png') }}" alt="">info@demfore.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="get">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Your Name *" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="phone" type="text" id="phone" placeholder="Your Phone" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="email" type="email" id="email" placeholder="Your Email *" required="">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="subject" type="text" id="subject" placeholder="Subject">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button-icon">Send Message Now <i class="fa fa-arrow-right"></i></button>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Contact Us Area Ends ***** -->
+    
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="left-text-content">
+                        <p>Copyright &copy; 2020 DemFore, Ltd. 
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="right-text-content">
+                            <ul class="social-icons">
+                                <li><p>Follow Us</p></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a rel="nofollow" href="#"><i class="fa fa-dribbble"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='styles/js/jquery-2.1.0.min.js') }}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='styles/js/popper.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/bootstrap.min.js') }}"></script>
+
+    <!-- Plugins -->
+    <script src="{{url_for('static', filename='styles/js/owl-carousel.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/scrollreveal.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/waypoints.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{url_for('static', filename='styles/js/imgfix.min.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/slick.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/lightbox.js') }}"></script> 
+    <script src="{{url_for('static', filename='styles/js/isotope.js') }}"></script> 
+    
+    <!-- Global Init -->
+    <script src="{{url_for('static', filename='styles/js/custom.js') }}"></script>
+
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+    </script>
+
+  </body>
+</html>

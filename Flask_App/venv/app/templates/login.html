@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign In</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{url_for('static', filename='styles/images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="" method="post" novalidate>
+					{{ form.hidden_tag() }}
+
+					<span class="login100-form-title p-b-26">
+						<i class="zmdi" style="font-size: 50px">DEMFORE</i>
+					</span>
+					
+        				
+                    <span class="login100-form-title p-b-48"  style="font-size: 30px">
+						Sign In
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						{{ form.email.label }}
+						{{ form.email(size=32) }}
+						
+						<!-- <input class="input100" type="text" name="email"> -->
+
+						<!-- <span class="focus-input100" data-placeholder="Email"></span>
+ -->
+
+					</div>
+					{% for error in form.email.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+
+						{{ form.password.label }}<br>
+						{{ form.password(size=32) }}
+						
+						<!-- <input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span> -->
+					</div>
+					{% for error in form.password.errors %}
+            			<span style="color: red;">[{{ error }}]</span>
+            		{% endfor %}
+            		{% with messages = get_flashed_messages() %}
+				        {% if messages %}
+				        <ul>
+				            {% for message in messages %}
+				            <li>{{ message }}</li>
+				            {% endfor %}
+				        </ul>
+				        {% endif %}
+				        {% endwith %}
+					<div class="container-login100-form-btn">
+						
+						<div class="wrap-login100-form-btn">
+
+							<div class="login100-form-bgbtn"></div>
+							
+							<button class="login100-form-btn">
+								<!-- <input type="submit" value="Sign In"> -->
+								Sign In
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+
+						<a class="txt2" href="{{ url_for('register') }}">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{url_for('static', filename='styles/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{url_for('static', filename='styles/vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{url_for('static', filename='styles/js/main.js') }}"></script>
+
+</body>
+</html>
