@@ -1,0 +1,2 @@
+# Demand_Forecasting_ML
+Developed a Demand Forecasting model for FMCG products using a Time Series Model. Chose SARIMA as the Time Series Method to consider seasonal element as well for the dataset. Made a website and integrated this ML model to it using Flask. Website user can upload his sales data (of the last 1 or more years) and get to know about the demand he should expect in the coming days/months. 
